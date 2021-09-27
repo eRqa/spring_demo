@@ -7,6 +7,9 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+<!--    Для установки значений не путем хардкода, лучше использовать пропертиес файл:-->
+    <context:property-placeholder location="classpath:application.properties"/>
+
     <bean id = "myPet"
         class = "ru.ivlasov.spring_demo.inroduction.Cat">
     </bean>
@@ -19,6 +22,10 @@
         <!--        Внедрение зависимости при помощи сеттера-->
 <!--        Нужно учесть что сеттер вызывается такой: set + name. В этом случае setPet-->
         <property name="pet" ref = "myPet"/>
+<!--        Или так вариант внедрения значения-->
+<!--        <property name = "age" value = "23"/>-->
+<!--        Или так из файла пропертиес-->
+                <property name = "age" value = "${person.age}"/>
     </bean>
 
 </beans>
