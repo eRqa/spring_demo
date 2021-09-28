@@ -1,8 +1,17 @@
 package ru.ivlasov.spring_demo.inroduction;
 
-public class Person {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
+public class Person {
     private Pet pet;
+    private int age;
+
+    @Autowired
+    public Person(Pet pet) {
+        this.pet = pet;
+    }
 
     public Pet getPet() {
         return pet;
@@ -14,12 +23,6 @@ public class Person {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    private int age;
-
-    public Person(Pet pet) {
-        this.pet = pet;
     }
 
     public Person() {
