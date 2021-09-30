@@ -20,6 +20,9 @@ public class Detail {
     @Column(name = "email")
     private String email;
 
+    @OneToOne(mappedBy = "empDetail")
+    private Employee details;
+
     public Detail() {
     }
 
